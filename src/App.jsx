@@ -7,6 +7,11 @@ export const App = () => {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
   const [password, setPassword] = useState('')
+  const [obj, setObj] = useState({
+      id: Date.now(),
+      name,
+      password
+  })
 
   const sendDataForm = data => {
       fetch('https://form-a65b7-default-rtdb.firebaseio.com/dataForm.json', {
@@ -20,24 +25,23 @@ export const App = () => {
         .then(res => console.log(res))
   }
 
+
+
   const handlerSubmitForm = event => {
     event.preventDefault()
-
-    const arr = []
-    arr.push(name)
-    console.log(arr)
+    console.log(obj);
   }
 
   return<>
     <form onSubmit={handlerSubmitForm}>
     <div className="mb-3">
       <label htmlFor="exampleInputName1" className="form-label">User Name</label>
-      <input type="text" className="form-control" id="exampleInputName1" aria-describedby="nameHelp" value={name} onChange={e => setName(e.target.value)} />
+      <input type="text" className="form-control" id="exampleInputName1" aria-describedby="nameHelp" value={obj.name} onChange={e => setObj({...obj ,name: e.target.value})} />
       <div id="nameHelp" className="form-text"></div>
     </div>
     <div className="mb-3">
       <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-      <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={email} onChange={e => setEmail(e.target.value)} />
+      <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={obj.email} onChange={e => setObj({...obj, password: e.target.value})} />
       <div id="emailHelp" className="form-text"></div>
     </div>
     <div className="mb-3">
