@@ -27,7 +27,8 @@ export const App = () => {
   }
 
   const emptyString = ({name, email, phone, password}) => {
-    
+    const _regExpEmail = /[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/igm
+    const _regExpName = /^[A-Za-z0-9]{3,45}$/
 
   }
 
@@ -42,8 +43,8 @@ export const App = () => {
     <form onSubmit={handlerSubmitForm}>
     <div className="mb-3">
       <label htmlFor="exampleInputName1" className="form-label">User Name</label>
-      <input type="text" className="form-control" id="exampleInputName1" aria-describedby="nameHelp" value={dataForm.name} onChange={e => setDataForm({...dataForm, name: e.target.value})} />
-        {dataForm.name === '' ? (<div id="nameHelp" className="form-text">Заполните строку</div>) : null}
+      <input type="text" className="form-control" id="exampleInputName1" aria-describedby="nameHelp" value={dataForm.name} onInput={e => setDataForm({...dataForm, name: e.target.value})} />
+      
     </div>
     <div className="mb-3">
       <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
@@ -64,3 +65,8 @@ export const App = () => {
   </>
 }
 
+const ErrorMessage = message => {
+  return<>
+    <div id="nameHelp" className="form-text" style={{color: 'red'}}>Заполните строку</div>
+  </>
+}
