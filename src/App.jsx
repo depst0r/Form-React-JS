@@ -27,6 +27,7 @@ export const App = () => {
   }
 
   const emptyString = ({name, email, phone, password}) => {
+    
 
   }
 
@@ -42,18 +43,16 @@ export const App = () => {
     <div className="mb-3">
       <label htmlFor="exampleInputName1" className="form-label">User Name</label>
       <input type="text" className="form-control" id="exampleInputName1" aria-describedby="nameHelp" value={dataForm.name} onChange={e => setDataForm({...dataForm, name: e.target.value})} />
-      <div id="nameHelp" className="form-text">
-        
-      </div>
+        {dataForm.name === '' ? (<div id="nameHelp" className="form-text">Заполните строку</div>) : null}
     </div>
     <div className="mb-3">
       <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-      <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={dataForm.email} onChange={e => setDataForm({...dataForm, email: e.target.value})} />
+      <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={dataForm.email} onChange={e => setDataForm({...dataForm, email: e.target.value})} />
       <div id="emailHelp" className="form-text"></div>
     </div>
     <div className="mb-3">
       <label htmlFor="exampleInputPhone1" className="form-label">Phone number</label>
-      <input type="phone" className="form-control" id="exampleInputPhone1" aria-describedby="phoneHelp" value={dataForm.phone} onChange={e => setDataForm({...dataForm, phone: e.target.value})} />
+      <input type="tel" className="form-control" id="exampleInputPhone1" aria-describedby="phoneHelp" value={dataForm.phone} onChange={e => setDataForm({...dataForm, phone: e.target.value})} />
       <div id="phoneHelp" className="form-text"></div>
     </div>
     <div className="mb-3">
