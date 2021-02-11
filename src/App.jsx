@@ -44,7 +44,6 @@ export const App = () => {
     <div className="mb-3">
       <label htmlFor="exampleInputName1" className="form-label">User Name</label>
       <input type="text" className="form-control" id="exampleInputName1" aria-describedby="nameHelp" value={dataForm.name} onInput={e => setDataForm({...dataForm, name: e.target.value})} />
-      
     </div>
     <div className="mb-3">
       <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
@@ -62,11 +61,5 @@ export const App = () => {
     </div>
     <button type="submit" disabled={disabled} className="btn btn-primary">Submit</button>
   </form>
-  </>
-}
-
-const ErrorMessage = message => {
-  return<>
-    <div id="nameHelp" className="form-text" style={{color: 'red'}}>Заполните строку</div>
   </>
 }
