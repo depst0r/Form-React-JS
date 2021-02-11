@@ -26,15 +26,15 @@ export const App = () => {
         .then(res => console.log(res))
   }
 
-  const isValid = arr => {
-    
+  const emptyString = ({name, email, phone, password}) => {
+
   }
 
 
   const handlerSubmitForm = event => {
     event.preventDefault()
     console.log(dataForm);
-    console.log();
+    emptyString(dataForm)
   }
 
   return<>
@@ -42,7 +42,9 @@ export const App = () => {
     <div className="mb-3">
       <label htmlFor="exampleInputName1" className="form-label">User Name</label>
       <input type="text" className="form-control" id="exampleInputName1" aria-describedby="nameHelp" value={dataForm.name} onChange={e => setDataForm({...dataForm, name: e.target.value})} />
-      <div id="nameHelp" className="form-text"></div>
+      <div id="nameHelp" className="form-text">
+        
+      </div>
     </div>
     <div className="mb-3">
       <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
@@ -62,5 +64,4 @@ export const App = () => {
   </form>
   </>
 }
-
 
